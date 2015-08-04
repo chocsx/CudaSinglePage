@@ -26,13 +26,15 @@
   <body>
     <div class="row header col-lg-12">
         <div class="container">
-            <div id="" class="">
+            <div id="home" class="">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="actives"><a href="#">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#work">Work</a></li>
-                    <li><a href="#about">Blog</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li class="actives"><a href="#" class="scroll">Home</a></li>
+                    <li><a href="#service" class="scroll">Services</a></li>
+                    <li><a href="#team" class="scroll">Team</a></li>
+                    <li><a href="#skills" class="scroll">Skills</a></li>
+                    <li><a href="#portfolio" class="scroll">Portfolio</a></li>
+                    <li><a href="#about" class="scroll">About us</a></li>
+                    <li><a href="#contact" class="scroll">Contact</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
             <h1 class="cuda">CUDA</h1>
@@ -47,7 +49,7 @@
         </div>
     </div>
         
-        <div id="services" class="row services col-lg-12">
+        <div id="service" class="row services col-lg-12">
             <div class="container ">
                <header>
                    <h1>SERVICES WE PROVIDE</h1>
@@ -76,7 +78,7 @@
                 </div>
             </div>
         </div>
-        <div class="row team col-lg-12">
+        <div id="team" class="row team col-lg-12">
             <div class="container">
                 <header>
                     <h1>MEET OUR BEAUTIFUL TEAM</h1>
@@ -126,7 +128,7 @@
             </div>
         </div>
         
-        <div class="row skills col-lg-12">
+        <div id="skills" class="row skills col-lg-12">
             <div class="container">
                 <header>
                     <h1>WE GOT SKILLS!</h1>
@@ -161,7 +163,7 @@
             </div>
         </div>
         
-        <div class="row portfolio col-lg-12">
+        <div id="portfolio" class="row portfolio col-lg-12">
             <div class="container">
                 <header>
                     <h1>OUR PORTFOLIO</h1>
@@ -197,7 +199,7 @@
             </div>
         </div>
         
-        <div class="row about col-lg-12">
+        <div id="about" class="row about col-lg-12">
             <div class="container">
                 <header>
                     <h1>WHAT PEOPLE SAY ABOUT US</h1>
@@ -230,7 +232,7 @@
                 </div>
             </div>
         </div>
-        <div class="row contact col-lg-12">
+        <div id="contact" class="row contact col-lg-12">
             <div class="container">
                 <header>
                     <h1>GET IN TOUCH</h1>
@@ -238,7 +240,7 @@
                     <p>Av. Assis Brasil, Porto Alegre, Brazil. Tel:(51) 8138-6432</p>
                 </header> 
                 <form action="POST" class="form-contact ">
-                    <input type="text" class="col-lg-12"placeholder="Your Name" required />
+                    <input type="text" class="col-lg-12" placeholder="Your Name" required />
                     <input type="text" placeholder="Your Email" required />
                     <textarea placeholder="Deixe sua opnião" ></textarea>
 <input type="submit" value="SEND MESSAGE"/>
@@ -254,6 +256,7 @@
                 <li><a href="#">Behance</a></li>
                 <li><a href="#">Dribbble</a></li>
                 <li><a href="#">GitHub</a></li>
+                <li><a href="#home" class="scroll"><i class="icon-arrow-up"></i></a></li>
             </ul>
         </footer>
 
@@ -264,7 +267,7 @@
     <script src="js/circles.js"></script>
     <script src="js/jquery.mixitup.min.js"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function($) {
             $('.navport').on('click', 'button', function() {
                 $('.navport button.activex').removeClass('activex');
                 $(this).addClass('activex');
@@ -276,17 +279,20 @@
             	
             $('#Container').mixItUp();
             
-            var services = $('#services').offset().top
-                    $('a[href="#work"]').click(function(){
-                        // Scroll down to 'catTopPosition'
-                        $('html, body').animate({scrollTop:services}, 'slow');
-                        // Stop the link from acting like a normal anchor link
-                        return false;
-                    });            
-		  
-            var colors = [
-            ['#dfe8ed', '#30bae7'], ['#dfe8ed', '#d74680'],                    ['#dfe8ed', '#15c7a8'], ['#dfe8ed', '#eb7d4b']
-			],
+            $('a[href^="#"]').bind('click.scroll', function(e) {
+                e.preventDefault();
+                var target = this.hash;
+                    // Scroll down to 'catTopPosition'
+                    $('html, body').stop().animate({
+                        'scrollTop' : $(target).offset().top
+                        }, 900, 'swing', function() {
+                            window.location.hash = target;
+                    });
+                // Stop the link from acting like a normal anchor link
+                return false;
+            });            
+
+            var colors = [['#dfe8ed', '#30bae7'],['#dfe8ed', '#d74680'],['#dfe8ed', '#15c7a8'],['#dfe8ed', '#eb7d4b']],
 			circles = [];
 		  for (var i = 1; i <= 4; i++) {
 			 var child = document.getElementById('circles-' + i),
