@@ -17,7 +17,7 @@ body{font-family: "Titillium Web", monospace;}
 .services header h1{font-size:2.5em;  font-weight: 600;100%; text-align: center; }
 .services hr{ width:20%;}
 .services p {width:100%; text-align: center; font-size: 1.3em;}
-.service span{    display: inline-block;    text-align: center;   vertical-align: bottom;    vertical-align: middle;    margin:0 90px}
+.service span{    display: inline-block;    text-align: center;   vertical-align: bottom;    vertical-align: middle;    width: 100%;}
 .service h1{text-align: center;}
 
 
@@ -29,8 +29,9 @@ body{font-family: "Titillium Web", monospace;}
 .team p {width:100%; text-align: center; font-size: 1.3em;}
 .team h1 {font-size: 2em;  width: 100%; text-align: center; }
 .team h2 {font-size: 1em; color:#48c1e9; width: 100%; text-align: center; margin: -20px 0 30px 10px; font-weight:bold;}
-.member{display: flex; flex-wrap: wrap;}
-.member span{ background-color: #bdd1df; color: #fff; text-align: center; height: 30px; width:30px;margin:15px;padding:7px; border-radius: 20px}
+.team img{margin: 0 auto;}
+.member{display: flex; flex-wrap: wrap; padding: 15px;}
+.member span{ background-color: #bdd1df; color: #fff;  text-align: center; height: 30px; width:30px;margin:0 auto;padding:7px; border-radius: 20px}
 .member span:hover{background: #6eafdd; cursor: pointer;}
 
 /*SKILLS*/
@@ -39,7 +40,8 @@ body{font-family: "Titillium Web", monospace;}
 .skills header h1{font-size:2.5em;  font-weight: 600;100%; text-align: center; }
 .skills hr{ width:20%;}
 .skills p {width:100%; text-align: center; font-size: 1.3em;}
-.skills h1 {font-size: 2em;  width: 100%; text-align: center;}
+#canvas{width: 100%;text-align: center;}
+.skills h1 {font-size: 2em;  width: 100%; margin: 0 auto; text-align: center;}
 #canvas .circle {	display: inline-block;			margin: 1em;		}
 .circles-decimals {			font-size: .4em;		}
 
